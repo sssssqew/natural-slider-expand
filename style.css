@@ -1,0 +1,109 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  width: 100%; height: 100vh;
+  background-color: #0e1111;
+
+  display: flex;  
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0; padding: 0;
+}
+.window{
+  /* border: 1px solid red; */
+  width: 50vw;
+  height: 500px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+.window .container{
+  width: calc(50vw * 7);
+  /* border: 1px solid green; */
+  height: 100%;
+
+  display: flex;
+  margin-left: -50vw; /* 두번째 사진부터 시작 */
+  transition: .5s  ease-in-out;
+}
+.window .container .box{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+.window .container .box:nth-child(1){
+  background: url('https://www.institutostrom.org/wp-content/uploads/2018/04/NZ.jpg') no-repeat center;
+}
+.window .container .box:nth-child(2) {
+  background: url("https://icepipeled.com/wp-content/uploads/2020/03/1.-ICEPIPE_2020_4_PC_bg.png") no-repeat center;
+}
+.window .container .box:nth-child(3) {
+  background: url("https://digitalassets-retail.cdn-apple.com/retail-image-server/a90/c85/1bd/c2d/1af/8ba/a2a/349/93e/fe2/11b8d32a-7f9f-372c-bca3-0a05d871e8c7_iMac_Wallpaper_4480x2520.jpg") no-repeat center;
+}
+.window .container .box:nth-child(4) {
+  background: url("http://file.instiz.net/data/file/20121125/5/6/0/5609249762358c2bcb65a46580549c99") no-repeat center;
+}
+.window .container .box:nth-child(5) {
+  background: url("https://s1.pearlcdn.com/KR/Upload/Community/434174d044320230412231123488.jpg") no-repeat center;
+}
+.window .container .box:nth-child(6){
+  background: url('https://www.institutostrom.org/wp-content/uploads/2018/04/NZ.jpg') no-repeat center;
+}
+.window .container .box:nth-child(7) {
+  background: url("https://icepipeled.com/wp-content/uploads/2020/03/1.-ICEPIPE_2020_4_PC_bg.png") no-repeat center;
+}
+
+.actions button{
+  border: 2px solid wheat;
+  background: none;
+  color: wheat;
+  padding: 1rem 2rem;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer
+}
+.actions button:hover{
+  transform: scale(1.02);
+  border: 2px solid wheat;
+  background-color: wheat;
+  color: #0e1111;
+}
+
+.expand span{
+  color: wheat;
+  font-size: 2rem;
+  position: absolute;
+  right: 1rem; top: 1rem;
+  cursor: pointer;
+  user-select: none;
+  transition: .2s;
+}
+.expand span:hover{
+  transform: scale(1.05);
+}
+.expand .shrink{
+  display: none;
+  transform: rotate(45deg);
+}
+
+.window.expandWindow{
+  width: 100vw;
+  height: 100vh;
+  margin-bottom: 0;
+}
+.container.expandContainer{
+  width: calc(100vw * 7);
+  height: 100%;
+  margin-left: -100vw; /* 두번째 사진부터 시작 */
+}
+.window.container.box.expandBox{
+  height: 100vh;
+}
+.hide{
+  display: none;
+}
+.shrink.show{
+  display: block;
+}
