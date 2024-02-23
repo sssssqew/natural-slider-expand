@@ -20,14 +20,17 @@ let isDown, startX, walk, walk2vw, isOver
 
 // 시작점 또는 끝점으로 이동하는 함수
 function slideToEnd(container, index, widthOfPhoto, unit, duration){
-  setTimeout(function(){ // 마지막 사진 이동 끝남
+  let timerOutside = setTimeout(function(){ // 마지막 사진 이동 끝남
     container.style.transition = 'none'
     container.style.opacity = '0' // 마지막 사진 가림
     container.style.marginLeft = -1 * index  * widthOfPhoto + unit // 첫번째 사진으로 이동
     container.style.opacity = '1' // 첫번째 사진 보여줌
     
-    setTimeout(function(){ // 트랜지션은 나중에 다시 설정하기
+    let timerInside = setTimeout(function(){ // 트랜지션은 나중에 다시 설정하기
       container.style.transition = `${duration}ms  ease-in-out`
+      clearTimeout(timerOutside)
+      clearTimeout(timerInside)
+      console.log('타이머 해제')
     }, 100)
   }, duration)
 }
