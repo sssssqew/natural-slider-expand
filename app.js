@@ -125,6 +125,7 @@ function expandSlider(e){
       box.classList.add('expandBox')
     }
     widthOfPhoto = 100
+    container.style.marginLeft = -1 * index * widthOfPhoto + unit // 확대시 변경된 슬라이드 너비로 marginLeft 새로 계산하기
   }else if(e.target.innerText === 'unfold_less'){
     frame.classList.remove('expandWindow')
     container.classList.remove('expandContainer')
@@ -136,7 +137,15 @@ function expandSlider(e){
       box.classList.remove('expandBox')
     }
     widthOfPhoto = 50
+    container.style.marginLeft = -1 * index * widthOfPhoto + unit // 축소시 변경된 슬라이드 너비로 marginLeft 새로 계산하기
   }
+}
+
+function handleKeyUp(e){
+    console.log(e.key)
+    if(e.key === "Escape"){
+        expandSlider(e)
+    }
 }
 
 prev.addEventListener('click', () => throttling(moveToRight))
@@ -148,3 +157,4 @@ container.addEventListener('mouseup', handleMouseUp)
 container.addEventListener('mouseleave', handleMouseLeave)
 
 expandBtn.addEventListener('click', expandSlider)
+window.addEventListener('keyup', handleKeyUp)
